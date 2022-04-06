@@ -1,8 +1,11 @@
 # PHP 7.0 support for Webimpress Coding Standard
 
-[![Unit Tests](https://github.com/webimpress70/coding-standard/actions/workflows/phpunit.yml/badge.svg)](https://github.com/webimpress/coding-standard/actions/workflows/phpunit.yml)
-[![Coding Standards](https://github.com/webimpress70/coding-standard/actions/workflows/phpcs.yml/badge.svg)](https://github.com/webimpress/coding-standard/actions/workflows/phpcs.yml)
-[![Coverage Status](https://coveralls.io/repos/github/webimpress70/coding-standard/badge.svg?branch=master)](https://coveralls.io/github/webimpress/coding-standard?branch=master)
+[![Unit Tests](https://github.com/webimpress70/coding-standard/actions/workflows/phpunit.yml/badge.svg)]
+(https://github.com/webimpress70/coding-standard/actions/workflows/phpunit.yml)
+[![Coding Standards](https://github.com/webimpress70/coding-standard/actions/workflows/phpcs.yml/badge.svg)]
+(https://github.com/webimpress70/coding-standard/actions/workflows/phpcs.yml)
+[![Coverage Status](https://coveralls.io/repos/github/webimpress70/coding-standard/badge.svg?branch=master)]
+(https://coveralls.io/github/webimpress70/coding-standard?branch=master)
 
 ## Installation
 
@@ -28,7 +31,7 @@
    <ruleset name="Webimpress Coding Standard"
             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
             xsi:noNamespaceSchemaLocation="./vendor/squizlabs/php_codesniffer/phpcs.xsd">
-       <rule ref="./vendor/webimpress/coding-standard/ruleset.xml"/>
+       <rule ref="./vendor/webimpress70/coding-standard/ruleset.xml"/>
 
        <!-- Paths to check -->
        <file>config</file>
