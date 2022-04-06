@@ -1,15 +1,15 @@
 # PHP 7.0 support for Webimpress Coding Standard
 
-[![Unit Tests](https://github.com/webimpress/coding-standard/actions/workflows/phpunit.yml/badge.svg)](https://github.com/webimpress/coding-standard/actions/workflows/phpunit.yml)
-[![Coding Standards](https://github.com/webimpress/coding-standard/actions/workflows/phpcs.yml/badge.svg)](https://github.com/webimpress/coding-standard/actions/workflows/phpcs.yml)
-[![Coverage Status](https://coveralls.io/repos/github/webimpress/coding-standard/badge.svg?branch=master)](https://coveralls.io/github/webimpress/coding-standard?branch=master)
+[![Unit Tests](https://github.com/webimpress70/coding-standard/actions/workflows/phpunit.yml/badge.svg)](https://github.com/webimpress/coding-standard/actions/workflows/phpunit.yml)
+[![Coding Standards](https://github.com/webimpress70/coding-standard/actions/workflows/phpcs.yml/badge.svg)](https://github.com/webimpress/coding-standard/actions/workflows/phpcs.yml)
+[![Coverage Status](https://coveralls.io/repos/github/webimpress70/coding-standard/badge.svg?branch=master)](https://coveralls.io/github/webimpress/coding-standard?branch=master)
 
 ## Installation
 
 1. Install the module via composer by running:
 
    ```bash
-   $ composer require --dev webimpress/coding-standard
+   $ composer require --dev webimpress70/coding-standard
    ```
 
 2. Add composer scripts into your `composer.json`:

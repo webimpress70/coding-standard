@@ -5,11 +5,11 @@
 If you wish to contribute to this project, please be sure to
 read/subscribe to the following resources:
 
- - [Coding Standards](https://github.com/webimpress/coding-standard)
+ - [Coding Standards](https://github.com/webimpress70/coding-standard)
  - [Code of Conduct](CODE_OF_CONDUCT.md)
 
 If you are working on new features or refactoring
-[create a proposal](https://github.com/webimpress/coding-standard/issues/new).
+[create a proposal](https://github.com/webimpress70/coding-standard/issues/new).
 
 ## RUNNING TESTS
 
@@ -18,7 +18,7 @@ To run tests:
 - Clone the repository:
 
   ```console
-  $ git clone git://github.com/webimpress/coding-standard.git
+  $ git clone git://github.com/webimpress70/coding-standard.git
   $ cd coding-standard
   ```
 
@@ -70,11 +70,11 @@ pull your work into the master repository. We recommend using
 [GitHub](https://github.com), as that is where the component is already hosted.
 
 1. Setup a [GitHub account](https://github.com/), if you haven't yet
-2. Fork the repository (https://github.com/webimpress/coding-standard)
+2. Fork the repository (https://github.com/webimpress70/coding-standard)
 3. Clone the canonical repository locally and enter it.
 
    ```console
-   $ git clone git://github.com/webimpress/coding-standard.git
+   $ git clone git://github.com/webimpress70/coding-standard.git
    $ cd coding-standard
    ```
 
