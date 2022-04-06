@@ -93,7 +93,10 @@ class DeclareStrictTypesSniff implements Sniff
         }
     }
 
-    private function fix(File $phpcsFile, int $start, int $eos, int $after) : void
+    /**
+     * @return void
+     */
+    private function fix(File $phpcsFile, int $start, int $eos, int $after)
     {
         $declaration = $phpcsFile->getTokensAsString($start, $eos - $start + 1);
 

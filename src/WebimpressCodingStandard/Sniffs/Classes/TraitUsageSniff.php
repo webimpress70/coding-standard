@@ -326,8 +326,10 @@ class TraitUsageSniff implements Sniff
      * Fix order of statements inside trait's curly brackets.
      *
      * @param string[] $statements
+     *
+     * @return void
      */
-    private function fixAlphabeticalOrder(File $phpcsFile, array $statements) : void
+    private function fixAlphabeticalOrder(File $phpcsFile, array $statements)
     {
         $phpcsFile->fixer->beginChangeset();
         foreach ($statements as $statement) {

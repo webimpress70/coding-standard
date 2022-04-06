@@ -107,7 +107,10 @@ trait MethodsTrait
         'void',
     ];
 
-    private function initScope(File $phpcsFile, int $stackPtr) : void
+    /**
+     * @return void
+     */
+    private function initScope(File $phpcsFile, int $stackPtr)
     {
         if ($this->currentFile !== $phpcsFile) {
             $this->currentFile = $phpcsFile;
@@ -332,7 +335,10 @@ trait MethodsTrait
             || $lower === $lowerParentClassName;
     }
 
-    private function removeTag(File $phpcsFile, int $tagPtr) : void
+    /**
+     * @return void
+     */
+    private function removeTag(File $phpcsFile, int $tagPtr)
     {
         $tokens = $phpcsFile->getTokens();
 
@@ -349,7 +355,10 @@ trait MethodsTrait
         $phpcsFile->fixer->endChangeset();
     }
 
-    private function getCommentStart(File $phpcsFile, int $stackPtr) : ?int
+    /**
+     * @return int|null
+     */
+    private function getCommentStart(File $phpcsFile, int $stackPtr)
     {
         $tokens = $phpcsFile->getTokens();
         $skip = Tokens::$methodPrefixes

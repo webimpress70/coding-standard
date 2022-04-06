@@ -75,7 +75,7 @@ class ImportInternalFunctionUnitTest extends AbstractTestCase
                     29 => 4,
                     30 => 4,
                     31 => 4,
-                    32 => 4,
+                    32 => 3,
                     34 => 5,
                 ];
         }

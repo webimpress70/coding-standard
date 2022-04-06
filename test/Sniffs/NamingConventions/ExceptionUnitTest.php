@@ -11,7 +11,7 @@ class ExceptionUnitTest extends AbstractTestCase
     protected function getErrorList(string $testFile = '') : array
     {
         return [
-            12 => 1,
+            12 => 0,
         ];
     }
 

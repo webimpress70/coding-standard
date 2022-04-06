@@ -52,8 +52,10 @@ class FormatSniff extends AbstractArraySniff
      * @param int $arrayEnd The token that ends the array definition.
      * @param array $indices An array of token positions for the array keys,
      *     double arrows, and values.
+     *
+     * @return void
      */
-    protected function processSingleLineArray($phpcsFile, $stackPtr, $arrayStart, $arrayEnd, $indices) : void
+    protected function processSingleLineArray($phpcsFile, $stackPtr, $arrayStart, $arrayEnd, $indices)
     {
         $tokens = $phpcsFile->getTokens();
 
@@ -90,8 +92,10 @@ class FormatSniff extends AbstractArraySniff
      * @param int $arrayEnd The token that ends the array definition.
      * @param array $indices An array of token positions for the array keys,
      *     double arrows, and values.
+     *
+     * @return void
      */
-    protected function processMultiLineArray($phpcsFile, $stackPtr, $arrayStart, $arrayEnd, $indices) : void
+    protected function processMultiLineArray($phpcsFile, $stackPtr, $arrayStart, $arrayEnd, $indices)
     {
         $tokens = $phpcsFile->getTokens();
 

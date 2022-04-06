@@ -212,7 +212,10 @@ class DoubleArrowSniff extends AbstractArraySniff
         return $spaces;
     }
 
-    private function checkSpace(File $phpcsFile, array $element, int $expectedSpaces = 1) : void
+    /**
+     * @return void
+     */
+    private function checkSpace(File $phpcsFile, array $element, int $expectedSpaces = 1)
     {
         $tokens = $phpcsFile->getTokens();
 

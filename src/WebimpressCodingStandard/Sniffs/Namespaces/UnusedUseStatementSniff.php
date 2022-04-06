@@ -222,7 +222,10 @@ class UnusedUseStatementSniff implements Sniff
         } while ($semiColon = $phpcsFile->findEndOfStatement($semiColon + 1));
     }
 
-    private function removeUse(File $phpcsFile, int $from, int $to) : void
+    /**
+     * @return void
+     */
+    private function removeUse(File $phpcsFile, int $from, int $to)
     {
         $tokens = $phpcsFile->getTokens();
 
@@ -390,7 +393,10 @@ class UnusedUseStatementSniff implements Sniff
         return false;
     }
 
-    private function determineType(File $phpcsFile, int $beforePtr, int $ptr) : ?string
+    /**
+     * @return string|null
+     */
+    private function determineType(File $phpcsFile, int $beforePtr, int $ptr)
     {
         $tokens = $phpcsFile->getTokens();
 

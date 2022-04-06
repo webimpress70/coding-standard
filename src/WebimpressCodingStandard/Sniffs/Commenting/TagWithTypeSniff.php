@@ -300,7 +300,10 @@ class TagWithTypeSniff implements Sniff
         return true;
     }
 
-    private function checkTypes(File $phpcsFile, string $tag, int $tagPtr) : void
+    /**
+     * @return void
+     */
+    private function checkTypes(File $phpcsFile, string $tag, int $tagPtr)
     {
         $hasInvalidType = false;
         $this->types = explode('|', $this->type);

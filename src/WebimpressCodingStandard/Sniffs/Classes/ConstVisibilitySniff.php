@@ -27,8 +27,10 @@ class ConstVisibilitySniff extends AbstractScopeSniff
     /**
      * @param int $stackPtr
      * @param int $currScope
+     *
+     * @return void
      */
-    protected function processTokenWithinScope(File $phpcsFile, $stackPtr, $currScope) : void
+    protected function processTokenWithinScope(File $phpcsFile, $stackPtr, $currScope)
     {
         $tokens = $phpcsFile->getTokens();
         $prev = $phpcsFile->findPrevious(Tokens::$emptyTokens, $stackPtr - 1, null, true);
@@ -52,8 +54,10 @@ class ConstVisibilitySniff extends AbstractScopeSniff
      * @codeCoverageIgnore
      *
      * @param int $stackPtr
+     *
+     * @return void
      */
-    protected function processTokenOutsideScope(File $phpcsFile, $stackPtr) : void
+    protected function processTokenOutsideScope(File $phpcsFile, $stackPtr)
     {
         // do not process constant outside the scope
     }

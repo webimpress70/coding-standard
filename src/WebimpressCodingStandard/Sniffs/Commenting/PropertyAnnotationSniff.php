@@ -14,24 +14,30 @@ class PropertyAnnotationSniff extends AbstractVariableSniff
 
     /**
      * @param int $stackPtr
+     *
+     * @return void
      */
-    protected function processMemberVar(File $phpcsFile, $stackPtr) : void
+    protected function processMemberVar(File $phpcsFile, $stackPtr)
     {
         $this->processAnnotations($phpcsFile, $stackPtr);
     }
 
     /**
      * @param int $stackPtr
+     *
+     * @return void
      */
-    protected function processVariable(File $phpcsFile, $stackPtr) : void
+    protected function processVariable(File $phpcsFile, $stackPtr)
     {
         // Sniff process only class member vars.
     }
 
     /**
      * @param int $stackPtr
+     *
+     * @return void
      */
-    protected function processVariableInString(File $phpcsFile, $stackPtr) : void
+    protected function processVariableInString(File $phpcsFile, $stackPtr)
     {
         // Sniff process only class member vars.
     }

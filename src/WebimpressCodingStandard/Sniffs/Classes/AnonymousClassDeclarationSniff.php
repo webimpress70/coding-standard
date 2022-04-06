@@ -150,7 +150,10 @@ class AnonymousClassDeclarationSniff implements Sniff
         $this->processExtendsAndImplements($phpcsFile, $classIndent, $opener ? $closer : $stackPtr, $scopeOpener);
     }
 
-    private function processBracket(File $phpcsFile, int $openBracket) : void
+    /**
+     * @return void
+     */
+    private function processBracket(File $phpcsFile, int $openBracket)
     {
         $tokens = $phpcsFile->getTokens();
         $closeBracket = $tokens[$openBracket]['parenthesis_closer'];
@@ -198,12 +201,15 @@ class AnonymousClassDeclarationSniff implements Sniff
         }
     }
 
+    /**
+     * @return void
+     */
     private function processExtendsAndImplements(
         File $phpcsFile,
         int $classIndent,
         int $stackPtr,
         int $openingBrace
-    ) : void {
+    ) {
         $tokens = $phpcsFile->getTokens();
 
         // Check positions of the extends and implements keywords.

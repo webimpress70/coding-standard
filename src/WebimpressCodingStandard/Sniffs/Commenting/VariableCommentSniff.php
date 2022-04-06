@@ -61,8 +61,10 @@ class VariableCommentSniff extends AbstractVariableSniff
 
     /**
      * @param int $stackPtr
+     *
+     * @return void
      */
-    protected function processMemberVar(File $phpcsFile, $stackPtr) : void
+    protected function processMemberVar(File $phpcsFile, $stackPtr)
     {
         $this->initScope($phpcsFile, $stackPtr);
 
@@ -456,21 +458,28 @@ class VariableCommentSniff extends AbstractVariableSniff
 
     /**
      * @param int $stackPtr
+     *
+     * @return void
      */
-    protected function processVariable(File $phpcsFile, $stackPtr) : void
+    protected function processVariable(File $phpcsFile, $stackPtr)
     {
         // Sniff process only class member vars.
     }
 
     /**
      * @param int $stackPtr
+     *
+     * @return void
      */
-    protected function processVariableInString(File $phpcsFile, $stackPtr) : void
+    protected function processVariableInString(File $phpcsFile, $stackPtr)
     {
         // Sniff process only class member vars.
     }
 
-    private function replaceParamTypeHint(File $phpcsFile, int $varPtr, string $newTypeHint) : void
+    /**
+     * @return void
+     */
+    private function replaceParamTypeHint(File $phpcsFile, int $varPtr, string $newTypeHint)
     {
         $last = $phpcsFile->findPrevious([T_CALLABLE, T_STRING], $varPtr - 1);
         $first = $phpcsFile->findPrevious([T_NULLABLE, T_STRING, T_NS_SEPARATOR], $last - 1, null, true);
@@ -483,6 +492,9 @@ class VariableCommentSniff extends AbstractVariableSniff
         $phpcsFile->fixer->endChangeset();
     }
 
+    /**
+     * @return void
+     */
     private function redundantType(
         File $phpcsFile,
         string $error,
@@ -490,8 +502,8 @@ class VariableCommentSniff extends AbstractVariableSniff
         string $code,
         string $redundantType,
         array $types,
-        ?string $description
-    ) : void {
+        string $description = null
+    ) {
         $fix = $phpcsFile->addFixableError($error, $ptr, $code);
 
         if ($fix) {

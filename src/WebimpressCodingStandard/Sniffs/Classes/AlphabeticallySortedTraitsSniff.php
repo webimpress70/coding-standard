@@ -144,8 +144,10 @@ class AlphabeticallySortedTraitsSniff implements Sniff
 
     /**
      * @param string[][] $uses
+     *
+     * @return void
      */
-    private function fixAlphabeticalOrder(File $phpcsFile, array $uses) : void
+    private function fixAlphabeticalOrder(File $phpcsFile, array $uses)
     {
         $first = reset($uses);
         $last = end($uses);

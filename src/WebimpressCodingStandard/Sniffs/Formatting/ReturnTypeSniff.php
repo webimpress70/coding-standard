@@ -150,8 +150,10 @@ class ReturnTypeSniff implements Sniff
 
     /**
      * Check if token before colon match configured number of spaces.
+     *
+     * @return void
      */
-    private function checkSpacesBeforeColon(File $phpcsFile, int $colon) : void
+    private function checkSpacesBeforeColon(File $phpcsFile, int $colon)
     {
         $tokens = $phpcsFile->getTokens();
 
@@ -194,8 +196,10 @@ class ReturnTypeSniff implements Sniff
 
     /**
      * Check if token after colon match configured number of spaces.
+     *
+     * @return void
      */
-    private function checkSpacesAfterColon(File $phpcsFile, int $colon) : void
+    private function checkSpacesAfterColon(File $phpcsFile, int $colon)
     {
         $tokens = $phpcsFile->getTokens();
 

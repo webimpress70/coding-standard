@@ -295,7 +295,10 @@ class RedundantParenthesesSniff implements Sniff
         }
     }
 
-    private function error(File $phpcsFile, int $openPtr, int $closePtr, string $errorCode) : void
+    /**
+     * @return void
+     */
+    private function error(File $phpcsFile, int $openPtr, int $closePtr, string $errorCode)
     {
         $tokens = $phpcsFile->getTokens();
 

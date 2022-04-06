@@ -133,8 +133,10 @@ class CorrectClassNameCaseSniff implements Sniff
 
     /**
      * Checks statement before double colon - "ClassName::".
+     *
+     * @return void
      */
-    private function checkDoubleColon(File $phpcsFile, int $stackPtr) : void
+    private function checkDoubleColon(File $phpcsFile, int $stackPtr)
     {
         $tokens = $phpcsFile->getTokens();
 
@@ -161,8 +163,10 @@ class CorrectClassNameCaseSniff implements Sniff
 
     /**
      * Checks "new ClassName" statements.
+     *
+     * @return void
      */
-    private function checkNew(File $phpcsFile, int $stackPtr) : void
+    private function checkNew(File $phpcsFile, int $stackPtr)
     {
         $tokens = $phpcsFile->getTokens();
 
@@ -188,8 +192,10 @@ class CorrectClassNameCaseSniff implements Sniff
 
     /**
      * Checks "use" statements - global and traits.
+     *
+     * @return void
      */
-    private function checkUse(File $phpcsFile, int $stackPtr) : void
+    private function checkUse(File $phpcsFile, int $stackPtr)
     {
         $tokens = $phpcsFile->getTokens();
 
@@ -220,8 +226,10 @@ class CorrectClassNameCaseSniff implements Sniff
 
     /**
      * Checks params type hints
+     *
+     * @return void
      */
-    private function checkFunctionParams(File $phpcsFile, int $stackPtr) : void
+    private function checkFunctionParams(File $phpcsFile, int $stackPtr)
     {
         $params = $phpcsFile->getMethodParameters($stackPtr);
 
@@ -240,8 +248,10 @@ class CorrectClassNameCaseSniff implements Sniff
 
     /**
      * Checks return type
+     *
+     * @return void
      */
-    private function checkReturnType(File $phpcsFile, int $stackPtr) : void
+    private function checkReturnType(File $phpcsFile, int $stackPtr)
     {
         $eol = $phpcsFile->findNext([T_FN_ARROW, T_SEMICOLON, T_OPEN_CURLY_BRACKET], $stackPtr + 1);
         if ($before = $phpcsFile->findPrevious([T_COLON, T_NULLABLE], $eol - 1)) {
@@ -254,8 +264,10 @@ class CorrectClassNameCaseSniff implements Sniff
 
     /**
      * Checks PHPDocs tags
+     *
+     * @return void
      */
-    private function checkTag(File $phpcsFile, int $stackPtr) : void
+    private function checkTag(File $phpcsFile, int $stackPtr)
     {
         $tokens = $phpcsFile->getTokens();
 
@@ -267,7 +279,7 @@ class CorrectClassNameCaseSniff implements Sniff
         }
 
         $string = $tokens[$stackPtr + 2]['content'];
-        [$type] = explode(' ', $string);
+        list($type) = explode(' ', $string);
         $types = [$type];
 
         if ($tokens[$stackPtr]['content'] === '@method'
@@ -369,8 +381,10 @@ class CorrectClassNameCaseSniff implements Sniff
 
     /**
      * Checks "extends" and "implements" classes/interfaces.
+     *
+     * @return void
      */
-    private function checkExtendsAndImplements(File $phpcsFile, int $stackPtr) : void
+    private function checkExtendsAndImplements(File $phpcsFile, int $stackPtr)
     {
         $tokens = $phpcsFile->getTokens();
 
@@ -397,8 +411,10 @@ class CorrectClassNameCaseSniff implements Sniff
 
     /**
      * Checks if class is used correctly.
+     *
+     * @return void
      */
-    private function checkClass(File $phpcsFile, int $start, int $end, bool $isGlobalUse = false) : void
+    private function checkClass(File $phpcsFile, int $start, int $end, bool $isGlobalUse = false)
     {
         $class = trim($phpcsFile->getTokensAsString($start, $end - $start));
         if (strpos($class, '\\') === 0) {
@@ -458,6 +474,8 @@ class CorrectClassNameCaseSniff implements Sniff
 
     /**
      * Reports new fixable error.
+     *
+     * @return void
      */
     private function error(
         File $phpcsFile,
@@ -465,8 +483,8 @@ class CorrectClassNameCaseSniff implements Sniff
         int $end,
         string $expected,
         string $actual,
-        ?int $ptr = null
-    ) : void {
+        int $ptr = null
+    ) {
         $error = 'Expected class name %s; found %s';
         $data = [
             $expected,
@@ -492,8 +510,10 @@ class CorrectClassNameCaseSniff implements Sniff
     /**
      * Checks if class is defined and has different case - then returns class name
      * with correct case. Otherwise returns false.
+     *
+     * @return string|null
      */
-    private function hasDifferentCase(string $class) : ?string
+    private function hasDifferentCase(string $class)
     {
         $index = array_search(strtolower($class), array_map('strtolower', $this->declaredClasses), true);
 

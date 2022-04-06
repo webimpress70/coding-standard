@@ -100,7 +100,10 @@ class FunctionCommentSniff implements Sniff
         }
     }
 
-    private function processTagOrder(File $phpcsFile, int $commentStart) : void
+    /**
+     * @return void
+     */
+    private function processTagOrder(File $phpcsFile, int $commentStart)
     {
         $tokens = $phpcsFile->getTokens();
 

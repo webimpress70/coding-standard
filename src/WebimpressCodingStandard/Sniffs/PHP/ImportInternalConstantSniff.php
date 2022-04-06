@@ -117,7 +117,10 @@ class ImportInternalConstantSniff implements Sniff
         return $phpcsFile->numTokens + 1;
     }
 
-    private function processString(File $phpcsFile, int $stackPtr, ?int $namespacePtr) : ?string
+    /**
+     * @return string|null
+     */
+    private function processString(File $phpcsFile, int $stackPtr, int $namespacePtr = null)
     {
         $tokens = $phpcsFile->getTokens();
 
@@ -231,8 +234,10 @@ class ImportInternalConstantSniff implements Sniff
 
     /**
      * @param string[] $constantNames
+     *
+     * @return void
      */
-    private function importConstants(File $phpcsFile, int $namespacePtr, array $constantNames) : void
+    private function importConstants(File $phpcsFile, int $namespacePtr, array $constantNames)
     {
         if (! $constantNames) {
             return;

@@ -341,8 +341,10 @@ class DeclareStrictTypesSniff implements Sniff
      *
      * @param File $phpcsFile The file being scanned.
      * @param int $declare The position of the first declaration.
+     *
+     * @return void
      */
-    private function checkOtherDeclarations(File $phpcsFile, int $declare = 0) : void
+    private function checkOtherDeclarations(File $phpcsFile, int $declare = 0)
     {
         $tokens = $phpcsFile->getTokens();
 

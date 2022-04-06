@@ -42,7 +42,10 @@ class RedundantSemicolonSniff implements Sniff
         $this->checkMultipleSemicolons($phpcsFile, $stackPtr);
     }
 
-    private function checkBeginningOfScope(File $phpcsFile, int $stackPtr) : void
+    /**
+     * @return void
+     */
+    private function checkBeginningOfScope(File $phpcsFile, int $stackPtr)
     {
         $tokens = $phpcsFile->getTokens();
 
@@ -57,7 +60,10 @@ class RedundantSemicolonSniff implements Sniff
         }
     }
 
-    private function checkAfterScope(File $phpcsFile, int $stackPtr) : void
+    /**
+     * @return void
+     */
+    private function checkAfterScope(File $phpcsFile, int $stackPtr)
     {
         $tokens = $phpcsFile->getTokens();
 
@@ -83,7 +89,10 @@ class RedundantSemicolonSniff implements Sniff
         }
     }
 
-    private function checkMultipleSemicolons(File $phpcsFile, int $stackPtr) : void
+    /**
+     * @return void
+     */
+    private function checkMultipleSemicolons(File $phpcsFile, int $stackPtr)
     {
         $tokens = $phpcsFile->getTokens();
 

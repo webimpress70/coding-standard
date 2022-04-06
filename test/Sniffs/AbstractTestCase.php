@@ -49,7 +49,7 @@ abstract class AbstractTestCase extends TestCase
      */
     public $testsDir = __DIR__ . '/../../test/Sniffs/';
 
-    protected function setUp() : void
+    protected function setUp()
     {
         // Initialize tokens constants
         new Tokens();
@@ -99,7 +99,7 @@ abstract class AbstractTestCase extends TestCase
     /**
      * Tests the extending classes Sniff class.
      */
-    final public function testSniff() : void
+    final public function testSniff()
     {
         // Skip this test if we can't run in this environment.
         if ($this->shouldSkipTest()) {
@@ -108,7 +108,7 @@ abstract class AbstractTestCase extends TestCase
 
         $sniffCode = Common::getSniffCode(get_class($this));
         $sniffCode = str_replace('Test.', '.', $sniffCode);
-        [$standardName, $categoryName, $sniffName] = explode('.', $sniffCode);
+        list($standardName, $categoryName, $sniffName) = explode('.', $sniffCode);
 
         $testFileBase = $this->testsDir . $categoryName . DIRECTORY_SEPARATOR . $sniffName . 'UnitTest.';
 

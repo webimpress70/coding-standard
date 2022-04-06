@@ -92,7 +92,10 @@ class TernaryOperatorSniff implements Sniff
         }
     }
 
-    protected function findThen(File $phpcsFile, int $stackPtr) : ?int
+    /**
+     * @return int|null
+     */
+    protected function findThen(File $phpcsFile, int $stackPtr)
     {
         $tokens = $phpcsFile->getTokens();
         $count = 0;
@@ -113,7 +116,10 @@ class TernaryOperatorSniff implements Sniff
         return null;
     }
 
-    protected function findElse(File $phpcsFile, int $stackPtr) : ?int
+    /**
+     * @return int|null
+     */
+    protected function findElse(File $phpcsFile, int $stackPtr)
     {
         $tokens = $phpcsFile->getTokens();
         $count = 0;

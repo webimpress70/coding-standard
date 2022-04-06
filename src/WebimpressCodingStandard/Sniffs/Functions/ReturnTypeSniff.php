@@ -167,7 +167,10 @@ class ReturnTypeSniff implements Sniff
         $this->processReturnStatements($phpcsFile, $stackPtr);
     }
 
-    private function getReturnType(File $phpcsFile, int $stackPtr) : ?int
+    /**
+     * @return int|null
+     */
+    private function getReturnType(File $phpcsFile, int $stackPtr)
     {
         $tokens = $phpcsFile->getTokens();
 
@@ -181,7 +184,10 @@ class ReturnTypeSniff implements Sniff
         return $last;
     }
 
-    private function processReturnDoc(File $phpcsFile, int $commentStart) : void
+    /**
+     * @return void
+     */
+    private function processReturnDoc(File $phpcsFile, int $commentStart)
     {
         $tokens = $phpcsFile->getTokens();
 
@@ -247,7 +253,10 @@ class ReturnTypeSniff implements Sniff
         $this->returnDocTypes = explode('|', $this->returnDocValue);
     }
 
-    private function processReturnType(File $phpcsFile, int $stackPtr) : void
+    /**
+     * @return void
+     */
+    private function processReturnType(File $phpcsFile, int $stackPtr)
     {
         // Get return type from method signature
         $returnType = $this->getReturnType($phpcsFile, $stackPtr);
@@ -353,7 +362,7 @@ class ReturnTypeSniff implements Sniff
                 $fix = $phpcsFile->addFixableError($error, $this->returnDoc, 'RedundantReturnDoc');
 
                 if ($fix) {
-                    $this->removeTag($phpcsFile, $this->returnDoc);
+                    $this->removeTag($phpcsFile, (int)$this->returnDoc);
                 }
             }
 
@@ -584,7 +593,10 @@ class ReturnTypeSniff implements Sniff
         // @phpcs:enable
     }
 
-    private function redundantType(File $phpcsFile, string $error, int $ptr, string $code, string $redundantType) : void
+    /**
+     * @return void
+     */
+    private function redundantType(File $phpcsFile, string $error, int $ptr, string $code, string $redundantType)
     {
         $fix = $phpcsFile->addFixableError($error, $ptr, $code);
 
@@ -601,7 +613,10 @@ class ReturnTypeSniff implements Sniff
         }
     }
 
-    private function processReturnStatements(File $phpcsFile, int $stackPtr) : void
+    /**
+     * @return void
+     */
+    private function processReturnStatements(File $phpcsFile, int $stackPtr)
     {
         $tokens = $phpcsFile->getTokens();
 
@@ -829,7 +844,10 @@ class ReturnTypeSniff implements Sniff
         }
     }
 
-    private function endOfExpression(File $phpcsFile, int $ptr) : ?int
+    /**
+     * @return int|null
+     */
+    private function endOfExpression(File $phpcsFile, int $ptr)
     {
         $tokens = $phpcsFile->getTokens();
 
@@ -1027,7 +1045,10 @@ class ReturnTypeSniff implements Sniff
         return true;
     }
 
-    private function returnCodeVoid(File $phpcsFile, int $ptr) : void
+    /**
+     * @return void
+     */
+    private function returnCodeVoid(File $phpcsFile, int $ptr)
     {
         if (($this->returnDoc && $this->returnDocIsValid)
             || ($this->returnType && $this->returnTypeIsValid && strtolower($this->returnTypeValue) !== 'void')
@@ -1038,7 +1059,10 @@ class ReturnTypeSniff implements Sniff
         }
     }
 
-    private function returnCodeValue(File $phpcsFile, int $ptr) : void
+    /**
+     * @return void
+     */
+    private function returnCodeValue(File $phpcsFile, int $ptr)
     {
         // Special method cannot return any values.
         if ($this->isSpecialMethod) {

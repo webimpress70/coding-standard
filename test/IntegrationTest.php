@@ -22,7 +22,7 @@ class IntegrationTest extends TestCase
     /**
      * @dataProvider files
      */
-    public function testIntegration(string $file) : void
+    public function testIntegration(string $file)
     {
         $tmpname = tempnam(sys_get_temp_dir(), '') . '_' . basename($file);
         copy($file, $tmpname);

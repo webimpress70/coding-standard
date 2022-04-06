@@ -18,8 +18,10 @@ class NoNullValuesSniff extends AbstractVariableSniff
 {
     /**
      * @param int $stackPtr
+     *
+     * @return void
      */
-    protected function processMemberVar(File $phpcsFile, $stackPtr) : void
+    protected function processMemberVar(File $phpcsFile, $stackPtr)
     {
         $tokens = $phpcsFile->getTokens();
 
@@ -61,16 +63,20 @@ class NoNullValuesSniff extends AbstractVariableSniff
 
     /**
      * @param int $stackPtr
+     *
+     * @return void
      */
-    protected function processVariable(File $phpcsFile, $stackPtr) : void
+    protected function processVariable(File $phpcsFile, $stackPtr)
     {
         // Normal variables are not processed in this sniff.
     }
 
     /**
      * @param int $stackPtr
+     *
+     * @return void
      */
-    protected function processVariableInString(File $phpcsFile, $stackPtr) : void
+    protected function processVariableInString(File $phpcsFile, $stackPtr)
     {
         // Variables in string are not processed in this sniff.
     }

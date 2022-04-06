@@ -888,7 +888,10 @@ class ScopeIndentSniff implements Sniff
         return $phpcsFile->numTokens + 1;
     }
 
-    private function extras(int $index, int $value) : void
+    /**
+     * @return void
+     */
+    private function extras(int $index, int $value)
     {
         if (isset($this->extras[$index])) {
             $this->extras[$index] += $value;
@@ -897,7 +900,10 @@ class ScopeIndentSniff implements Sniff
         }
     }
 
-    private function findPrevious(File $phpcsFile, int $ptr, array $search) : ?int
+    /**
+     * @return int|null
+     */
+    private function findPrevious(File $phpcsFile, int $ptr, array $search)
     {
         $tokens = $phpcsFile->getTokens();
 
@@ -921,8 +927,10 @@ class ScopeIndentSniff implements Sniff
 
     /**
      * Find next token in object chain calls.
+     *
+     * @return int|null
      */
-    private function findNext(File $phpcsFile, int $ptr, array $search = []) : ?int
+    private function findNext(File $phpcsFile, int $ptr, array $search = [])
     {
         $tokens = $phpcsFile->getTokens();
 
@@ -1013,8 +1021,10 @@ class ScopeIndentSniff implements Sniff
     /**
      * Checks if there is another object operator
      * before $ptr token.
+     *
+     * @return int|null
      */
-    private function hasPrevObjectOperator(File $phpcsFile, int $ptr) : ?int
+    private function hasPrevObjectOperator(File $phpcsFile, int $ptr)
     {
         $tokens = $phpcsFile->getTokens();
 

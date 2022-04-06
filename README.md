@@ -1,4 +1,4 @@
-# Webimpress Coding Standard
+# PHP 7.0 support for Webimpress Coding Standard
 
 [![Unit Tests](https://github.com/webimpress/coding-standard/actions/workflows/phpunit.yml/badge.svg)](https://github.com/webimpress/coding-standard/actions/workflows/phpunit.yml)
 [![Coding Standards](https://github.com/webimpress/coding-standard/actions/workflows/phpcs.yml/badge.svg)](https://github.com/webimpress/coding-standard/actions/workflows/phpcs.yml)

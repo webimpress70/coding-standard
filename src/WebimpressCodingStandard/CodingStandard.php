@@ -20,7 +20,7 @@ use const T_TRAIT;
  */
 class CodingStandard
 {
-    public const TAG_WITH_TYPE = [
+    const TAG_WITH_TYPE = [
         '@var',
         '@param',
         '@return',

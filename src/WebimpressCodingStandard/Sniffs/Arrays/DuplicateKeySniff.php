@@ -22,7 +22,7 @@ use const T_VARIABLE;
 
 class DuplicateKeySniff extends AbstractArraySniff
 {
-    private const ALLOWED_CHARS = '/(?<!\\\\)(?:\\\\{2})*\\\(?:[0-7nrftve]|x[A-Fa-f0-9])/';
+    const ALLOWED_CHARS = '/(?<!\\\\)(?:\\\\{2})*\\\(?:[0-7nrftve]|x[A-Fa-f0-9])/';
 
     /**
      * @param File $phpcsFile
@@ -30,8 +30,10 @@ class DuplicateKeySniff extends AbstractArraySniff
      * @param int $arrayStart
      * @param int $arrayEnd
      * @param array $indices
+     *
+     * @return void
      */
-    protected function processSingleLineArray($phpcsFile, $stackPtr, $arrayStart, $arrayEnd, $indices) : void
+    protected function processSingleLineArray($phpcsFile, $stackPtr, $arrayStart, $arrayEnd, $indices)
     {
         $this->processArray($phpcsFile, $indices);
     }
@@ -42,13 +44,18 @@ class DuplicateKeySniff extends AbstractArraySniff
      * @param int $arrayStart
      * @param int $arrayEnd
      * @param array $indices
+     *
+     * @return void
      */
-    protected function processMultiLineArray($phpcsFile, $stackPtr, $arrayStart, $arrayEnd, $indices) : void
+    protected function processMultiLineArray($phpcsFile, $stackPtr, $arrayStart, $arrayEnd, $indices)
     {
         $this->processArray($phpcsFile, $indices);
     }
 
-    private function processArray(File $phpcsFile, array $indices) : void
+    /**
+     * @return void
+     */
+    private function processArray(File $phpcsFile, array $indices)
     {
         $tokens = $phpcsFile->getTokens();
 

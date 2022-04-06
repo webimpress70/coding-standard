@@ -25,8 +25,10 @@ class MethodAnnotationSniff extends AbstractScopeSniff
     /**
      * @param int $stackPtr
      * @param int $currScope
+     *
+     * @return void
      */
-    protected function processTokenWithinScope(File $phpcsFile, $stackPtr, $currScope) : void
+    protected function processTokenWithinScope(File $phpcsFile, $stackPtr, $currScope)
     {
         $this->processAnnotations($phpcsFile, $stackPtr);
     }
@@ -35,8 +37,10 @@ class MethodAnnotationSniff extends AbstractScopeSniff
      * @codeCoverageIgnore
      *
      * @param int $stackPtr
+     *
+     * @return void
      */
-    protected function processTokenOutsideScope(File $phpcsFile, $stackPtr) : void
+    protected function processTokenOutsideScope(File $phpcsFile, $stackPtr)
     {
         // We are only checking methods in the class/interface/trait
     }

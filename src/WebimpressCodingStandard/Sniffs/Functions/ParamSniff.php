@@ -79,7 +79,10 @@ class ParamSniff implements Sniff
         $this->processParamSpec($phpcsFile);
     }
 
-    private function processParamDoc(File $phpcsFile, int $commentStart) : void
+    /**
+     * @return void
+     */
+    private function processParamDoc(File $phpcsFile, int $commentStart)
     {
         $params = [];
         $paramsMap = [];
@@ -166,8 +169,10 @@ class ParamSniff implements Sniff
 
     /**
      * @param string[] $map
+     *
+     * @return void
      */
-    private function fixParamOrder(File $phpcsFile, array $map, int $wrong) : void
+    private function fixParamOrder(File $phpcsFile, array $map, int $wrong)
     {
         $tokens = $phpcsFile->getTokens();
 
@@ -220,7 +225,10 @@ class ParamSniff implements Sniff
         $phpcsFile->fixer->endChangeset();
     }
 
-    private function replaceParamTypeHint(File $phpcsFile, int $varPtr, string $newTypeHint) : void
+    /**
+     * @return void
+     */
+    private function replaceParamTypeHint(File $phpcsFile, int $varPtr, string $newTypeHint)
     {
         $last = $phpcsFile->findPrevious([T_ARRAY_HINT, T_CALLABLE, T_STRING], $varPtr - 1);
         $first = $phpcsFile->findPrevious([T_NULLABLE, T_STRING, T_NS_SEPARATOR], $last - 1, null, true);
@@ -239,15 +247,17 @@ class ParamSniff implements Sniff
      * @param null|string $name Name of the param in the @param tag.
      * @param null|string $typeStr Type of the param in the @param tag.
      * @param null|string $description Description of the param in the @param tag.
+     *
+     * @return void
      */
     private function checkParam(
         File $phpcsFile,
         array $param,
-        ?int $tagPtr = null,
-        ?string $name = null,
-        ?string $typeStr = null,
-        ?string $description = null
-    ) : void {
+        int $tagPtr = null,
+        string $name = null,
+        string $typeStr = null,
+        string $description = null
+    ) {
         $typeHint = $param['type_hint'];
 
         if ($typeHint) {
@@ -564,7 +574,10 @@ class ParamSniff implements Sniff
         }
     }
 
-    private function processParamSpec(File $phpcsFile) : void
+    /**
+     * @return void
+     */
+    private function processParamSpec(File $phpcsFile)
     {
         foreach ($this->params as $k => $param) {
             if (in_array($k, $this->processedParams, true)) {
@@ -575,6 +588,9 @@ class ParamSniff implements Sniff
         }
     }
 
+    /**
+     * @return void
+     */
     private function redundantType(
         File $phpcsFile,
         string $error,
@@ -582,9 +598,9 @@ class ParamSniff implements Sniff
         string $code,
         string $redundantType,
         array $types,
-        ?string $name,
-        ?string $description
-    ) : void {
+        string $name = null,
+        string $description = null
+    ) {
         $fix = $phpcsFile->addFixableError($error, $ptr, $code);
 
         if ($fix) {

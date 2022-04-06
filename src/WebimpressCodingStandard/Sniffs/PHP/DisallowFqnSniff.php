@@ -164,13 +164,16 @@ class DisallowFqnSniff implements Sniff
         return $phpcsFile->numTokens + 1;
     }
 
+    /**
+     * @return void
+     */
     private function processTag(
         File $phpcsFile,
         int $stackPtr,
         string $namespace,
         array &$toImport,
         array &$toFix
-    ) : void {
+    ) {
         $tokens = $phpcsFile->getTokens();
 
         if (! in_array($tokens[$stackPtr]['content'], CodingStandard::TAG_WITH_TYPE, true)
@@ -181,7 +184,7 @@ class DisallowFqnSniff implements Sniff
         }
 
         $string = $tokens[$stackPtr + 2]['content'];
-        [$type] = explode(' ', $string);
+        list($type) = explode(' ', $string);
         $types = [$type];
 
         if ($tokens[$stackPtr]['content'] === '@method'
@@ -277,13 +280,16 @@ class DisallowFqnSniff implements Sniff
         return $alias . $suffix;
     }
 
+    /**
+     * @return void
+     */
     private function processString(
         File $phpcsFile,
         int $stackPtr,
         string $namespace,
         array &$toImport,
         array &$toFix
-    ) : void {
+    ) {
         $tokens = $phpcsFile->getTokens();
 
         $prev = $phpcsFile->findPrevious(Tokens::$emptyTokens, $stackPtr - 1, null, true);
@@ -544,7 +550,10 @@ class DisallowFqnSniff implements Sniff
         return true;
     }
 
-    private function fixError(File $phpcsFile, int $stackPtr, string $expected) : void
+    /**
+     * @return void
+     */
+    private function fixError(File $phpcsFile, int $stackPtr, string $expected)
     {
         $tokens = $phpcsFile->getTokens();
 
@@ -603,8 +612,10 @@ class DisallowFqnSniff implements Sniff
 
     /**
      * @param string[][] $references
+     *
+     * @return void
      */
-    private function importReferences(File $phpcsFile, int $namespacePtr, array $references) : void
+    private function importReferences(File $phpcsFile, int $namespacePtr, array $references)
     {
         $tokens = $phpcsFile->getTokens();
         if (isset($tokens[$namespacePtr]['scope_opener'])) {

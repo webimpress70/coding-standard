@@ -54,7 +54,10 @@ trait AnnotationsTrait
      */
     public $allowedAnnotations = [];
 
-    private function processAnnotations(File $phpcsFile, int $stackPtr) : void
+    /**
+     * @return void
+     */
+    private function processAnnotations(File $phpcsFile, int $stackPtr)
     {
         $ignored = [
             T_PUBLIC,
@@ -150,7 +153,7 @@ trait AnnotationsTrait
      * @param null|string[] $tag
      * @return false|int
      */
-    private function isTag(string $content, ?array &$tag = null)
+    private function isTag(string $content, array &$tag = null)
     {
         return preg_match_all($this->annotationRegexp . 'i', $content, $tag);
     }
@@ -159,7 +162,7 @@ trait AnnotationsTrait
      * @param null|string[] $annotation
      * @return false|int
      */
-    private function isAnnotation(string $content, ?array &$annotation = null)
+    private function isAnnotation(string $content, array &$annotation = null)
     {
         return preg_match($this->annotationRegexp, $content, $annotation);
     }

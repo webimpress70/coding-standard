@@ -138,7 +138,10 @@ class RedundantCaseSniff implements Sniff
         return $stackPtr + 1;
     }
 
-    private function deleteCase(File $phpcsFile, int $casePtr, int $lastPtr) : void
+    /**
+     * @return void
+     */
+    private function deleteCase(File $phpcsFile, int $casePtr, int $lastPtr)
     {
         $tokens = $phpcsFile->getTokens();
 
@@ -169,7 +172,10 @@ class RedundantCaseSniff implements Sniff
         $phpcsFile->fixer->endChangeset();
     }
 
-    private function onlyBreak(File $phpcsFile, int $casePtr, int $breakPtr) : void
+    /**
+     * @return void
+     */
+    private function onlyBreak(File $phpcsFile, int $casePtr, int $breakPtr)
     {
         $tokens = $phpcsFile->getTokens();
 

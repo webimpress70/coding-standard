@@ -25,8 +25,10 @@ class DefaultAsLastSniff implements Sniff
 
     /**
      * @param int $stackPtr
+     *
+     * @return void
      */
-    public function process(File $phpcsFile, $stackPtr) : void
+    public function process(File $phpcsFile, $stackPtr)
     {
         $tokens = $phpcsFile->getTokens();
         $default = $tokens[$stackPtr];

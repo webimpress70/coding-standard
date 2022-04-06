@@ -232,8 +232,10 @@ class AlphabeticallySortedUsesSniff implements Sniff
 
     /**
      * @param string[][] $uses
+     *
+     * @return void
      */
-    private function fixAlphabeticalOrder(File $phpcsFile, array $uses) : void
+    private function fixAlphabeticalOrder(File $phpcsFile, array $uses)
     {
         $tokens = $phpcsFile->getTokens();
         $first = reset($uses);

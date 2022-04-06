@@ -75,7 +75,10 @@ class ThrowsSniff implements Sniff
         $this->processThrowStatements($phpcsFile, $stackPtr);
     }
 
-    private function processThrowsDoc(File $phpcsFile, int $commentStart) : void
+    /**
+     * @return void
+     */
+    private function processThrowsDoc(File $phpcsFile, int $commentStart)
     {
         $tokens = $phpcsFile->getTokens();
 
@@ -115,7 +118,10 @@ class ThrowsSniff implements Sniff
         }
     }
 
-    protected function processThrowStatements(File $phpcsFile, int $stackPtr) : void
+    /**
+     * @return void
+     */
+    protected function processThrowStatements(File $phpcsFile, int $stackPtr)
     {
         $tokens = $phpcsFile->getTokens();
 
@@ -352,7 +358,10 @@ class ThrowsSniff implements Sniff
         return false;
     }
 
-    private function findPrevious(File $phpcsFile, int $ptr) : ?int
+    /**
+     * @return int|null
+     */
+    private function findPrevious(File $phpcsFile, int $ptr)
     {
         $tokens = $phpcsFile->getTokens();
 
