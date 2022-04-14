@@ -47,11 +47,14 @@
             "@cs-check",
             "@test"
         ],
-        "cs-check": "docker run -it --rm -w /var/www -v $(pwd):/var/www php:7.0-cli php -d memory_limit=256M vendor/bin/phpcs",
-        "cs-fix": "docker run -it --rm -w /var/www -v $(pwd):/var/www php:7.0-cli php -d memory_limit=256M vendor/bin/phpcbf",
-        "test": "docker run -it --rm -w /var/www -v $(pwd):/var/www php:7.0-cli php -d memory_limit=256M vendor/bin/phpunit --colors=always",
-        "test-coverage": "docker run -it --rm -w /var/www -v $(pwd):/var/www php:7.0-cli php -d memory_limit=256M vendor/binphpunit --colors=always --coverage-clover clover.xml",
-        "static-analysis": "docker run -it --rm -w /var/www -v $(pwd):/var/www php:7.0-cli php -d memory_limit=256M vendor/bin/psalm --shepherd --stats"
+        "cs-check": "phpcs",
+        "cs-fix": "phpcbf",
+        "test": "phpunit --colors=always",
+        "test-coverage": "phpunit --colors=always --coverage-clover clover.xml",
+        "cs-check-7": "docker run -it --rm -w /var/www -v $(pwd):/var/www php:7.0-cli php -d memory_limit=256M vendor/bin/phpcs",
+        "cs-fix-7": "docker run -it --rm -w /var/www -v $(pwd):/var/www php:7.0-cli php -d memory_limit=256M vendor/bin/phpcbf",
+        "test-7": "docker run -it --rm -w /var/www -v $(pwd):/var/www php:7.0-cli php -d memory_limit=256M vendor/bin/phpunit --colors=always",
+        "test-coverage-7": "docker run -it --rm -w /var/www -v $(pwd):/var/www php:7.0-cli php -d memory_limit=256M vendor/binphpunit --colors=always --coverage-clover clover.xml",
     },
     "replace": {
         "webimpress/code-standard": "*"
